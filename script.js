@@ -59,6 +59,14 @@ function init(resultFromServer) {
     // openWeatherMap: how to get icon URL 
     weatherIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
 
+    let resultDescription = resultFromServer.weather[0].description;
+    weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
+
+    //Rounds number down
+    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176';
+    windSpeedElement.innerHTML = 'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
+    cityHeader.innerHTML = resultFromServer.name;
+    humidityElement.innerHTML = 'Humidity: ' + resultFromServer.main.humidity + '%';
 }
 
 
