@@ -46,10 +46,21 @@ function init(resultFromServer) {
 
         case 'Snow':
             document.body.style.backgroundImage = 'url("assets/images/snow.jpg")'
-
             break;
     }
+
+    let weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader')
+    let temperatureElement = document.getElementById('temperature');
+    let humidityElement = document.getElementById('humidity');
+    let windSpeedElement = document.getElementById("windSpeed");
+    let cityHeader = document.getElementById('cityHeader');
+    let weatherIcon = document.getElementById('documentIconImg');
+
+    // openWeatherMap: how to get icon URL 
+    weatherIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
+
 }
+
 
 document.getElementById('searchBtn').addEventListener('click', () => {
     let searchTerm = document.getElementById('searchInput').value;
